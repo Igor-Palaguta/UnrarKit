@@ -92,13 +92,17 @@ NS_DESIGNATED_INITIALIZER
 + (void)initialize {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+#if SWIFT_PACKAGE
+        _resources = SWIFTPM_MODULE_BUNDLE;
+#else
         NSBundle *mainBundle = [NSBundle mainBundle];
         NSURL *resourcesURL = [mainBundle URLForResource:@"UnrarKitResources" withExtension:@"bundle"];
-        
+
         _resources = (resourcesURL
                       ? [NSBundle bundleWithURL:resourcesURL]
                       : mainBundle);
-        
+#endif
+
         URKLogInit();
     });
 }

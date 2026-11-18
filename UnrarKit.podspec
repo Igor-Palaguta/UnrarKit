@@ -12,6 +12,8 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = "10.13"
   s.requires_arc = "Classes/**/*"
   s.source_files = "Classes/**/*.{mm,m,h}"
+  # Symlinks to public headers for Swift Package Manager
+  s.exclude_files = "Classes/include/**/*"
   s.public_header_files = "Classes/*.h"
   s.resource_bundles = {
       'UnrarKitResources' => ['Resources/**/*']

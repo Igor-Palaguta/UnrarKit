@@ -6,3 +6,7 @@ analyzer-output
 
 **/*.xccheckout
 **/xcuserdata/*
+
+# Swift Package Manager
+/.build
+/.swiftpm
